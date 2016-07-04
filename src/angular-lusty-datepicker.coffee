@@ -1,6 +1,6 @@
 angular.module "lustyDatepicker", ["pasvaz.bindonce"]
 
-angular.module("mightyDatepicker").directive "mightyDatepicker", [
+angular.module("lustyDatepicker").directive "lustyDatepicker", [
   "$compile", ($compile) ->
   pickerTemplate = """
     <div class="lusty-picker__wrapper">
