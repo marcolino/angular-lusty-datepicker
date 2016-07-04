@@ -1,7 +1,6 @@
 angular.module "lustyDatepicker", ["pasvaz.bindonce"]
 
-angular.module("lustyDatepicker").directive "lustyDatepicker", [
-  "$compile", ($compile) ->
+angular.module("lustyDatepicker").directive "lustyDatepicker", ["$compile", ($compile) ->
   pickerTemplate = """
     <div class="lusty-picker__wrapper">
       <button type="button" class="lusty-picker__prev-month"
@@ -77,8 +76,7 @@ angular.module("lustyDatepicker").directive "lustyDatepicker", [
       -1
 
     _indexMarkers = ->
-      $scope.markerIndex =
-        (marker.day for marker in $scope.markers) if $scope.markers
+      $scope.markerIndex = (marker.day for marker in $scope.markers) if $scope.markers
 
     _withinLimits = (day, month) ->
       withinLimits = true
@@ -103,11 +101,9 @@ angular.module("lustyDatepicker").directive "lustyDatepicker", [
     _isInRange = (day) ->
       if $scope.options.rangeMode
         if $scope.options.rangeMode == "from"
-          return moment.range($scope.model, $scope.before).contains(day) ||
-            day.isSame($scope.before, 'day')
+          return moment.range($scope.model, $scope.before).contains(day) || day.isSame($scope.before, 'day')
         else
-          return moment.range($scope.after, $scope.model).contains(day) ||
-            day.isSame($scope.after, 'day')
+          return moment.range($scope.after, $scope.model).contains(day) || day.isSame($scope.after, 'day')
       else
         return false
 
@@ -153,9 +149,7 @@ angular.module("lustyDatepicker").directive "lustyDatepicker", [
       switch $scope.options.mode
         when "multiple"
           # add start based on model
-          if $scope.model &&
-          Array.isArray($scope.model) &&
-          $scope.model.length > 0
+          if $scope.model && Array.isArray($scope.model) && $scope.model.length>0
             if $scope.model.length == 1
               start = moment($scope.model[0])
             else
@@ -175,8 +169,7 @@ angular.module("lustyDatepicker").directive "lustyDatepicker", [
         $scope.options.rangeMode = "to"
 
       _indexMarkers()
-      $scope.options.template =
-        $scope.options.template.replace('ng-bind-template=""',
+      $scope.options.template = $scope.options.template.replace('ng-bind-template=""',
         'ng-bind-template="' + $scope.options.markerTemplate + '"')
 
     _prepare = ->
