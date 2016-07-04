@@ -182,7 +182,7 @@ angular.module("lustyDatepicker").directive "lustyDatepicker", ["$compile", ($co
       _prepare()
       _bake()
 
-    $scope.on 'lusty-datepicker-reload', -> _prepare()
+    $scope.$on 'lusty-datepicker-reload', -> _prepare()
 
     $scope.moveMonth = (step) ->
       $scope.options.start.add(step, 'month')
