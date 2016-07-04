@@ -82,3 +82,4 @@
 
 0.0.1
 - initial release with simple datepicker functionality
+
