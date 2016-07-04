@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Angular Mighty Picker by Monterail</title>
+  <title>Angular lusty Picker by Monterail</title>
   <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="../bower_components/angular-bindonce/bindonce.js"></script>
   <script type="text/javascript" src="../bower_components/moment/moment.js"></script>
   <script type="text/javascript" src="../bower_components/moment-range/lib/moment-range.js"></script>
-  <script type="text/javascript" src="../build/angular-mighty-datepicker.js"></script>
+  <script type="text/javascript" src="../build/angular-lusty-datepicker.js"></script>
   <script type="text/javascript">
-    angular.module("testapp", ["mightyDatepicker"]);
+    angular.module("testapp", ["lustyDatepicker"]);
     angular.module("testapp").controller("TestCtrl", function($scope){
       $scope.range = moment().range("2012-11-05", "2013-01-25")
 
@@ -36,7 +36,7 @@
         return w < 6 && w > 0;
       }
 
-      var template = "<div class=\"mighty-picker__wrapperxx\">\n  <button type=\"button\" class=\"mighty-picker__prev-month\" ng-click=\"moveMonth(-1)\"><<</button>\n  <div class=\"mighty-picker__month\"\n    bindonce ng-repeat=\"month in months track by $index\">\n    <div class=\"mighty-picker__month-name\" ng-bind=\"month.name\"></div>\n    <table class=\"mighty-picker-calendar\">\n      <tr class=\"mighty-picker-calendar__days\">\n        <th bindonce ng-repeat=\"day in month.weeks[1]\"\n          class=\"mighty-picker-calendar__weekday\"\n          bo-text=\"day.date.format('dd')\">\n        </th>\n      </tr>\n      <tr bindonce ng-repeat=\"week in month.weeks\">\n        <td\n            bo-class='{\n              \"mighty-picker-calendar__day\": day,\n              \"mighty-picker-calendar__day--selected\": day.selected,\n              \"mighty-picker-calendar__day--disabled\": day.disabled,\n              \"mighty-picker-calendar__day--marked\": day.marker\n            }'\n            ng-repeat=\"day in week track by $index\" ng-click=\"select(day)\">\n            <div style=\"font-style: italic;\" class=\"mighty-picker-calendar__day-wrapper\"\n              bo-text=\"day.date.date()\"></div>\n            <div class=\"mighty-picker-calendar__day-marker-wrapper\">\n              <div class=\"mighty-picker-calendar__day-marker\"\n                ng-if=\"day.marker\"\n                ng-bind-template=\"\">\n              </div>\n            </div>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <button type=\"button\" class=\"mighty-picker__next-month\" ng-click=\"moveMonth(1)\">>></button>\n</div>";
+      var template = "<div class=\"lusty-picker__wrapperxx\">\n  <button type=\"button\" class=\"lusty-picker__prev-month\" ng-click=\"moveMonth(-1)\"><<</button>\n  <div class=\"lusty-picker__month\"\n    bindonce ng-repeat=\"month in months track by $index\">\n    <div class=\"lusty-picker__month-name\" ng-bind=\"month.name\"></div>\n    <table class=\"lusty-picker-calendar\">\n      <tr class=\"lusty-picker-calendar__days\">\n        <th bindonce ng-repeat=\"day in month.weeks[1]\"\n          class=\"lusty-picker-calendar__weekday\"\n          bo-text=\"day.date.format('dd')\">\n        </th>\n      </tr>\n      <tr bindonce ng-repeat=\"week in month.weeks\">\n        <td\n            bo-class='{\n              \"lusty-picker-calendar__day\": day,\n              \"lusty-picker-calendar__day--selected\": day.selected,\n              \"lusty-picker-calendar__day--disabled\": day.disabled,\n              \"lusty-picker-calendar__day--marked\": day.marker\n            }'\n            ng-repeat=\"day in week track by $index\" ng-click=\"select(day)\">\n            <div style=\"font-style: italic;\" class=\"lusty-picker-calendar__day-wrapper\"\n              bo-text=\"day.date.date()\"></div>\n            <div class=\"lusty-picker-calendar__day-marker-wrapper\">\n              <div class=\"lusty-picker-calendar__day-marker\"\n                ng-if=\"day.marker\"\n                ng-bind-template=\"\">\n              </div>\n            </div>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <button type=\"button\" class=\"lusty-picker__next-month\" ng-click=\"moveMonth(1)\">>></button>\n</div>";
 
       $scope.date = null;
       $scope.multi = [moment(), moment().add(2, 'day'), moment().add(5, 'day')];
@@ -61,7 +61,7 @@
 
     });
   </script>
-  <link rel="stylesheet" type="text/css" href="../build/angular-mighty-datepicker.css"/>
+  <link rel="stylesheet" type="text/css" href="../build/angular-lusty-datepicker.css"/>
   <style type="text/css">
     * {
       font-size: 10px;
@@ -73,33 +73,33 @@
   <div ng-controller="TestCtrl">
     <div>
       <h1>Simple date picker</h1>
-      <mighty-datepicker ng-model="date" options="options"></mighty-datepicker>
-      <mighty-datepicker ng-model="date" options="options"></mighty-datepicker>
+      <lusty-datepicker ng-model="date" options="options"></lusty-datepicker>
+      <lusty-datepicker ng-model="date" options="options"></lusty-datepicker>
       <pre>
         {{date | json}}
       </pre>
     </div>
     <div>
       <h1>Multiple date picker</h1>
-      <mighty-datepicker ng-model="multi" options="optionsM"></mighty-datepicker>
+      <lusty-datepicker ng-model="multi" options="optionsM"></lusty-datepicker>
     </div>
       <pre ng-repeat="day in multi">
         {{ day | json}}
       </pre>
     <div>
       <h1>Date picker with markers</h1>
-      <mighty-datepicker ng-model="mark" options="optionsK" markers="markers"></mighty-datepicker>
+      <lusty-datepicker ng-model="mark" options="optionsK" markers="markers"></lusty-datepicker>
       <button ng-click="addMarker()">Add marker on selected day</button>
     </div>
     <div>
       <h1>Date picker with date and no start</h1>
-      <mighty-datepicker ng-model="dateSt" options="optionsSt"></mighty-datepicker>
+      <lusty-datepicker ng-model="dateSt" options="optionsSt"></lusty-datepicker>
       <span>{{ dateSt }}}</span>
     </div>
     <div>
       <h1>Double datepicker for data range</h1>
-      <mighty-datepicker ng-model="dateDbA" options="optionsDbA" before="dateDbB" range-from="true" style="display: inline-block"></mighty-datepicker>
-      <mighty-datepicker ng-model="dateDbB" options="optionsDbB" after="dateDbA" range-to="true" style="display: inline-block"></mighty-datepicker>
+      <lusty-datepicker ng-model="dateDbA" options="optionsDbA" before="dateDbB" range-from="true" style="display: inline-block"></lusty-datepicker>
+      <lusty-datepicker ng-model="dateDbB" options="optionsDbB" after="dateDbA" range-to="true" style="display: inline-block"></lusty-datepicker>
     </div>
   </div>
 </body>

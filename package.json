@@ -1,15 +1,16 @@
 {
-  "name": "angular-mighty-datepicker",
-  "version": "0.1.4",
+  "name": "angular-lusty-datepicker",
+  "version": "0.2.0",
   "authors": [
+    "Marco Solari <marcosolari@gmail.com>",
     "Krzysztof Jung <krzysztof.jung@monterail.com>",
     "Patryk Peas <patryk.peas@monterail.com>",
     "Kamil Nicieja <kamil.nicieja@monterail.com>",
     "Bartosz Erbert <bartosz.erbert@monterail.com>"
   ],
-  "repository": "git://github.com/monterail/angular-mighty-datepicker.git",
-  "description": "Angular based datepicker with mighty options",
-  "main": "build/angular-mighty-datepicker.js",
+  "repository": "git://github.com/marcolino/angular-lusty-datepicker.git",
+  "description": "Angular based datepicker with lusty (was mighty) options",
+  "main": "build/angular-lusty-datepicker.js",
   "devDependencies": {
     "beepbeep": "^1.2.0",
     "gulp": "~3.8.10",
@@ -32,12 +33,15 @@
     "datepicker"
   ],
   "license": "MIT",
-  "homepage": "http://github.com/monterail/angular-mighty-datepicker",
+  "homepage": "http://github.com/marcolino/angular-lusty-datepicker",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
 }

@@ -1,9 +1,12 @@
-# Angular based datepicker with mighty options
+# Angular based datepicker with lusty (was mighty) options
 
 ## Documentation and demo
-[http://monterail.github.io/angular-mighty-datepicker/](http://monterail.github.io/angular-mighty-datepicker/)
+[http://marcolino.github.io/angular-lusty-datepicker/](http://marcolino.github.io/angular-lusty-datepicker/)
 
 ## Changelog:
+
+0.2.0
+- added event handling to redraw calendar
 
 0.1.4
 - fix problem with selecting 1 day in range picker

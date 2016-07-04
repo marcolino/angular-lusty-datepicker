@@ -1,36 +1,36 @@
-angular.module "mightyDatepicker", ["pasvaz.bindonce"]
+angular.module "lustyDatepicker", ["pasvaz.bindonce"]
 
-angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($compile) ->
-  pickerTemplate = """
-    <div class="mighty-picker__wrapper">
-      <button type="button" class="mighty-picker__prev-month"
+angular.module("lustyDatepicker").directive "lustyDatepicker",
+  ["$compile", ($compile) -> pickerTemplate = """
+    <div class="lusty-picker__wrapper">
+      <button type="button" class="lusty-picker__prev-month"
         ng-click="moveMonth(-1)">
         <<
       </button>
-      <div class="mighty-picker__month"
+      <div class="lusty-picker__month"
         bindonce ng-repeat="month in months track by $index">
-        <div class="mighty-picker__month-name" ng-bind="month.name"></div>
-        <table class="mighty-picker-calendar">
-          <tr class="mighty-picker-calendar__days">
+        <div class="lusty-picker__month-name" ng-bind="month.name"></div>
+        <table class="lusty-picker-calendar">
+          <tr class="lusty-picker-calendar__days">
             <th bindonce ng-repeat="day in month.weeks[1]"
-              class="mighty-picker-calendar__weekday"
+              class="lusty-picker-calendar__weekday"
               bo-text="day.date.format('dd')">
             </th>
           </tr>
           <tr bindonce ng-repeat="week in month.weeks">
             <td
                 bo-class='{
-                  "mighty-picker-calendar__day": day,
-                  "mighty-picker-calendar__day--selected": day.selected,
-                  "mighty-picker-calendar__day--disabled": day.disabled,
-                  "mighty-picker-calendar__day--in-range": day.inRange,
-                  "mighty-picker-calendar__day--marked": day.marker
+                  "lusty-picker-calendar__day": day,
+                  "lusty-picker-calendar__day--selected": day.selected,
+                  "lusty-picker-calendar__day--disabled": day.disabled,
+                  "lusty-picker-calendar__day--in-range": day.inRange,
+                  "lusty-picker-calendar__day--marked": day.marker
                 }'
                 ng-repeat="day in week track by $index" ng-click="select(day)">
-                <div class="mighty-picker-calendar__day-wrapper"
+                <div class="lusty-picker-calendar__day-wrapper"
                   bo-text="day.date.date()"></div>
-                <div class="mighty-picker-calendar__day-marker-wrapper">
-                  <div class="mighty-picker-calendar__day-marker"
+                <div class="lusty-picker-calendar__day-marker-wrapper">
+                  <div class="lusty-picker-calendar__day-marker"
                     ng-if="day.marker"
                     ng-bind-template="">
                   </div>
@@ -39,7 +39,7 @@ angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($
           </tr>
         </table>
       </div>
-      <button type="button" class="mighty-picker__next-month"
+      <button type="button" class="lusty-picker__next-month"
         ng-click="moveMonth(1)">
         >>
       </button>
@@ -55,7 +55,7 @@ angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($
     template: pickerTemplate
   restrict: "AE"
   replace: true
-  template: '<div class="mighty-picker__holder"></div>'
+  template: '<div class="lusty-picker__holder"></div>'
   scope:
     model: '=ngModel'
     options: '='
@@ -76,7 +76,8 @@ angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($
       -1
 
     _indexMarkers = ->
-      $scope.markerIndex = (marker.day for marker in $scope.markers) if $scope.markers
+      $scope.markerIndex =
+        (marker.day for marker in $scope.markers) if $scope.markers
 
     _withinLimits = (day, month) ->
       withinLimits = true
@@ -101,9 +102,11 @@ angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($
     _isInRange = (day) ->
       if $scope.options.rangeMode
         if $scope.options.rangeMode == "from"
-          return moment.range($scope.model, $scope.before).contains(day) || day.isSame($scope.before, 'day')
+          return moment.range($scope.model, $scope.before).contains(day) ||
+            day.isSame($scope.before, 'day')
         else
-          return moment.range($scope.after, $scope.model).contains(day) || day.isSame($scope.after, 'day')
+          return moment.range($scope.after, $scope.model).contains(day) ||
+            day.isSame($scope.after, 'day')
       else
         return false
 
@@ -149,7 +152,9 @@ angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($
       switch $scope.options.mode
         when "multiple"
           # add start based on model
-          if $scope.model && Array.isArray($scope.model) && $scope.model.length>0
+          if $scope.model &&
+          Array.isArray($scope.model) &&
+          $scope.model.length > 0
             if $scope.model.length == 1
               start = moment($scope.model[0])
             else
@@ -169,7 +174,8 @@ angular.module("mightyDatepicker").directive "mightyDatepicker", ["$compile", ($
         $scope.options.rangeMode = "to"
 
       _indexMarkers()
-      $scope.options.template = $scope.options.template.replace('ng-bind-template=""',
+      $scope.options.template =
+        $scope.options.template.replace('ng-bind-template=""',
         'ng-bind-template="' + $scope.options.markerTemplate + '"')
 
     _prepare = ->
