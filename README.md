@@ -6,6 +6,7 @@
 ## Changelog:
 
 0.2.0
+- cloned from angular-mighty-datepicker due to a lack of response to pull requests
 - added event handling to redraw calendar
 
 0.1.4
