@@ -1,7 +1,8 @@
 angular.module "lustyDatepicker", ["pasvaz.bindonce"]
 
-angular.module("lustyDatepicker").directive "lustyDatepicker", [
-  "$compile", ($compile) -> pickerTemplate = """
+angular.module("mightyDatepicker").directive "mightyDatepicker", [
+  "$compile", ($compile) ->
+  pickerTemplate = """
     <div class="lusty-picker__wrapper">
       <button type="button" class="lusty-picker__prev-month"
         ng-click="moveMonth(-1)">
