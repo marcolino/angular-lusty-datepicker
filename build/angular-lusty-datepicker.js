@@ -199,6 +199,9 @@
             _prepare();
             return _bake();
           };
+          $scope.on('lusty-datepicker-reload', function() {
+            return _prepare();
+          });
           $scope.moveMonth = function(step) {
             $scope.options.start.add(step, 'month');
             _prepare();
