@@ -70,7 +70,7 @@ gulp.task("less", function(){
 gulp.task("coffee", function(){
   return gulp.src(paths.src + "**/*.coffee")
     .pipe(changed(paths.dst, { extension: '.js' }))
-    .pipe(coffeelint({max_line_length: 128}))
+    .pipe(coffeelint())
     .pipe(coffeelint.reporter())
     .pipe(plumber({
       errorHandler: onError
